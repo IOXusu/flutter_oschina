@@ -13,6 +13,6 @@ abstract class AppInfos {
 abstract class AppUrls {
   static const String HOST = 'https://www.baidu.com/';
 
-  static const String OAUTH2_AUTHORIZE = HOST + "/action/oauth2/authorize";
-  static const String OAUTH2_TOKEN = HOST + '/action/openapi/token';
+  static const String OAUTH2_AUTHORIZE = HOST + "action/oauth2/authorize";
+  static const String OAUTH2_TOKEN = HOST + 'action/openapi/token';
 }

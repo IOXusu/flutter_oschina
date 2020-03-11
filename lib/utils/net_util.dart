@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 
-class NetUti {
+class NetUtils {
   static Future<String> get(String url, Map<String, dynamic> params) async {
     if (url != null && params != null && params.isNotEmpty) {
       StringBuffer sb = StringBuffer('?');

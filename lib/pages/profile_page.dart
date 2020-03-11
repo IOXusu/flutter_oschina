@@ -1,5 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_oschina/common/event_bus.dart';
 import 'package:flutter_oschina/constants/constants.dart';
+
+import 'login_web_page.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -34,6 +39,8 @@ class ProfilePageState extends State<ProfilePage> {
   void initState() {
     super.initState();
     _showUserInfo();
+    eventBus.on<LoginEvent>().listen((event) {});
+    eventBus.on<LogOutEvent>().listen((event) {});
   }
 
   _showUserInfo() {}
@@ -60,9 +67,11 @@ class ProfilePageState extends State<ProfilePage> {
   }
 
   _login() async {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context){
-
-    }));
+    final result = await Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => LoginWebPage()));
+    if (result != null && result == 'refresh') {
+      eventBus.fire(LoginEvent());
+    }
   }
 
   Container _buildHeader() {
