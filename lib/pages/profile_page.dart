@@ -31,6 +31,14 @@ class ProfilePageState extends State<ProfilePage> {
   String userName;
 
   @override
+  void initState() {
+    super.initState();
+    _showUserInfo();
+  }
+
+  _showUserInfo() {}
+
+  @override
   Widget build(BuildContext context) {
     return ListView.separated(
         itemBuilder: (context, index) {
@@ -42,15 +50,19 @@ class ProfilePageState extends State<ProfilePage> {
             leading: Icon(menuIcons[index]),
             title: Text(menuTitles[index]),
             trailing: Icon(Icons.arrow_forward_ios),
-            onTap: () {
-              //TODO
-            },
+            onTap: () {},
           );
         },
         separatorBuilder: (context, index) {
           return Divider();
         },
         itemCount: menuTitles.length + 1);
+  }
+
+  _login() async {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context){
+
+    }));
   }
 
   Container _buildHeader() {
@@ -76,6 +88,9 @@ class ProfilePageState extends State<ProfilePage> {
                       fit: BoxFit.cover,
                     )),
               ),
+              onTap: () {
+                _login();
+              },
             ),
             SizedBox(
               height: 10.0,
