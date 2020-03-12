@@ -4,15 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_oschina/constants/constants.dart';
 import 'package:flutter_oschina/utils/data_util.dart';
+import 'package:flutter_oschina/utils/net_util.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-
-import '../constants/constants.dart';
-import '../constants/constants.dart';
-import '../constants/constants.dart';
-import '../constants/constants.dart';
-import '../constants/constants.dart';
-import '../constants/constants.dart';
-import '../utils/net_util.dart';
 
 class LoginWebPage extends StatefulWidget {
   @override
@@ -79,7 +72,7 @@ class LoginWebPageState extends State<LoginWebPage> {
 
     return WebviewScaffold(
       url: AppUrls.OAUTH2_AUTHORIZE +
-          '?response_type=code&client_id' +
+          '?response_type=code&client_id=' +
           AppInfos.CLIENT_ID +
           '&redirect_url=' +
           AppInfos.REDIRECT_URI,

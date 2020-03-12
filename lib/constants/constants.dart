@@ -11,8 +11,12 @@ abstract class AppInfos {
 }
 
 abstract class AppUrls {
-  static const String HOST = 'https://www.baidu.com/';
+  static const String HOST = 'https://www.oschina.net';
 
-  static const String OAUTH2_AUTHORIZE = HOST + "action/oauth2/authorize";
-  static const String OAUTH2_TOKEN = HOST + 'action/openapi/token';
+  //授权登录 ctrl shift u
+  static const String OAUTH2_AUTHORIZE = HOST + '/action/oauth2/authorize';
+  //获取token
+  static const String OAUTH2_TOKEN = HOST + '/action/openapi/token';
+  //获取用户信息
+  static const String OPENAPI_USER = HOST + '/action/openapi/user';
 }
