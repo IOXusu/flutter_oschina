@@ -71,7 +71,7 @@ class MyDrawer extends StatelessWidget {
   }
 
   _navPush(BuildContext context, Widget page) {
-    return Navigator.push(
-        context, MaterialPageRoute(builder: (context) => page));
+    Navigator.of(context).pop();
+    Navigator.push(context, MaterialPageRoute(builder: (context) => page));
   }
 }

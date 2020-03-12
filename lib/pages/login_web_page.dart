@@ -74,7 +74,7 @@ class LoginWebPageState extends State<LoginWebPage> {
       url: AppUrls.OAUTH2_AUTHORIZE +
           '?response_type=code&client_id=' +
           AppInfos.CLIENT_ID +
-          '&redirect_url=' +
+          '&redirect_uri=' +
           AppInfos.REDIRECT_URI,
       appBar: AppBar(
         iconTheme: IconThemeData(color: Color(AppColors.APPBAR)),
