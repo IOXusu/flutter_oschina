@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_oschina/pages/common_web_page.dart';
 import 'package:barcode_scan/barcode_scan.dart';
+import 'package:flutter_oschina/pages/shake_page.dart';
 
 class DiscoveryPage extends StatefulWidget {
   @override
@@ -88,6 +89,8 @@ class DiscoveryPageState extends State<DiscoveryPage> {
         print("barcode" + barcode);
         break;
       case '摇一摇':
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => ShakePage()));
         break;
       case '码云封面任务':
         break;
