@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_oschina/constants/constants.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_oschina/pages/common_web_page.dart';
+import 'package:barcode_scan/barcode_scan.dart';
 
 class DiscoveryPage extends StatefulWidget {
   @override
@@ -24,6 +25,8 @@ class DiscoveryPageState extends State<DiscoveryPage> {
       '线下活动': Icons.android,
     }
   ];
+
+  String barcode = "";
 
   @override
   Widget build(BuildContext context) {
@@ -80,12 +83,12 @@ class DiscoveryPageState extends State<DiscoveryPage> {
         break;
       case '代码片段':
         break;
-
       case '扫一扫':
+        scan();
+        print("barcode" + barcode);
         break;
       case '摇一摇':
         break;
-
       case '码云封面任务':
         break;
       case '线下活动':
@@ -97,5 +100,25 @@ class DiscoveryPageState extends State<DiscoveryPage> {
     if (title != null && url != null) {}
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => CommonWebPage(title: title, url: url)));
+  }
+
+  Future scan() async {
+    try {
+      String barcode = await BarcodeScanner.scan();
+      setState(() => this.barcode = barcode);
+    } on PlatformException catch (e) {
+      if (e.code == BarcodeScanner.CameraAccessDenied) {
+        setState(() {
+          this.barcode = 'The user did not grant the camera permission!';
+        });
+      } else {
+        setState(() => this.barcode = 'Unknown error: $e');
+      }
+    } on FormatException {
+      setState(() => this.barcode =
+          'null (User returned using the "back"-button before scanning anything. Result)');
+    } catch (e) {
+      setState(() => this.barcode = 'Unknown error: $e');
+    }
   }
 }
