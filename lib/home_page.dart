@@ -56,7 +56,7 @@ class HomePageState extends State<HomePage> {
       ),
       body: PageView.builder(
         //禁止滑动
-//        physics: NeverScrollableScrollPhysics(),
+        physics: NeverScrollableScrollPhysics(),
         itemBuilder: (BuildContext context, int index) {
           return _pages[index];
         },
